@@ -47,10 +47,6 @@ class MyRobot(wpilib.TimedRobot):
 
         self.lstick = wpilib.Joystick(0)
 
-        # Encoders
-        self.l_encoder = wpilib.Encoder(0, 1)
-        self.r_encoder = wpilib.Encoder(2, 3)
-
         # Left front
         left_front_motor = ctre.WPI_TalonSRX(10)
         left_front_motor.setSensorPhase(False)

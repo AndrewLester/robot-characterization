@@ -9,3 +9,5 @@ bin
 */.vscode
 */.wpilib
 */build
+
+venv
