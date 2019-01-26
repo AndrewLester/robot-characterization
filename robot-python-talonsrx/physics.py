@@ -87,7 +87,7 @@ class PhysicsEngine(object):
         """
             Called when the simulation parameters for the program need to be
             updated.
-            
+
             :param now: The current time as a float
             :param tm_diff: The amount of time that has passed since the last
                             time that this function was called
@@ -98,8 +98,8 @@ class PhysicsEngine(object):
 
         # Simulate the drivetrain
         try:
-            lf_motor = hal_data["CAN"][1]
-            rf_motor = hal_data["CAN"][2]
+            lf_motor = hal_data["CAN"][10]
+            rf_motor = hal_data["CAN"][20]
         except (KeyError, IndexError):
             return
 

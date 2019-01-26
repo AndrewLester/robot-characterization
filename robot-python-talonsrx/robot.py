@@ -47,27 +47,27 @@ class MyRobot(wpilib.TimedRobot):
 
         self.lstick = wpilib.Joystick(0)
 
+        # Encoders
+        self.l_encoder = wpilib.Encoder(0, 1)
+        self.r_encoder = wpilib.Encoder(2, 3)
+
         # Left front
-        left_front_motor = ctre.WPI_TalonSRX(1)
-        left_front_motor.setInverted(False)
+        left_front_motor = ctre.WPI_TalonSRX(10)
         left_front_motor.setSensorPhase(False)
         self.left_front_motor = left_front_motor
 
         # Right front
-        right_front_motor = ctre.WPI_TalonSRX(2)
-        right_front_motor.setInverted(False)
+        right_front_motor = ctre.WPI_TalonSRX(20)
         right_front_motor.setSensorPhase(False)
         self.right_front_motor = right_front_motor
 
         # Left rear -- follows front
-        left_rear_motor = ctre.WPI_TalonSRX(3)
-        left_rear_motor.setInverted(False)
+        left_rear_motor = ctre.WPI_TalonSRX(15)
         left_rear_motor.setSensorPhase(False)
         left_rear_motor.follow(left_front_motor)
 
         # Right rear -- follows front
-        right_rear_motor = ctre.WPI_TalonSRX(4)
-        right_rear_motor.setInverted(False)
+        right_rear_motor = ctre.WPI_TalonSRX(25)
         right_rear_motor.setSensorPhase(False)
         right_rear_motor.follow(right_front_motor)
 
