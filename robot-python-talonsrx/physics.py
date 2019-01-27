@@ -98,8 +98,8 @@ class PhysicsEngine(object):
 
         # Simulate the drivetrain
         try:
-            lf_motor = hal_data["CAN"][10]
-            rf_motor = hal_data["CAN"][20]
+            lr_motor = hal_data["CAN"][15]
+            rr_motor = hal_data["CAN"][25]
         except (KeyError, IndexError):
             return
 
@@ -108,7 +108,7 @@ class PhysicsEngine(object):
         # rr_motor = hal_data['pwm'][4]['value']
 
         x, y, angle = self.drivetrain.get_distance(
-            lf_motor["value"] * -1, rf_motor["value"] * -1, tm_diff
+            lr_motor["value"] * -1, rr_motor["value"] * -1, tm_diff
         )
         self.physics_controller.distance_drive(x, y, angle)
 
@@ -116,11 +116,11 @@ class PhysicsEngine(object):
 
         left_counter = self.drivetrain.l_position / self.ENCODER_SCALE
         right_counter = self.drivetrain.r_position / self.ENCODER_SCALE
-        lf_motor["quad_position"] = int(left_counter)
-        rf_motor["quad_position"] = int(right_counter)
+        lr_motor["quad_position"] = int(left_counter)
+        rr_motor["quad_position"] = int(right_counter)
 
         # The 10 is because velocity is measured per 100ms
         left_velocity = 10 * self.drivetrain.l_velocity / self.ENCODER_SCALE
         right_velocity = 10 * self.drivetrain.r_velocity / self.ENCODER_SCALE
-        lf_motor["quad_velocity"] = int(left_velocity)
-        rf_motor["quad_velocity"] = int(right_velocity)
+        lr_motor["quad_velocity"] = int(left_velocity)
+        rr_motor["quad_velocity"] = int(right_velocity)

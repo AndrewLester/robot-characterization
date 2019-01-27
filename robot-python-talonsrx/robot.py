@@ -83,28 +83,28 @@ class MyRobot(wpilib.TimedRobot):
             (1 / self.ENCODER_PULSE_PER_REV) * self.WHEEL_DIAMETER * math.pi
         )
 
-        left_front_motor.configSelectedFeedbackSensor(
-            left_front_motor.FeedbackDevice.QuadEncoder, self.PIDIDX, 10
+        left_rear_motor.configSelectedFeedbackSensor(
+            left_rear_motor.FeedbackDevice.QuadEncoder, self.PIDIDX, 10
         )
         self.l_encoder_getpos = (
-            lambda: left_front_motor.getSelectedSensorPosition(self.PIDIDX)
+            lambda: left_rear_motor.getSelectedSensorPosition(self.PIDIDX)
             * encoder_constant
         )
         self.l_encoder_getrate = (
-            lambda: left_front_motor.getSelectedSensorVelocity(self.PIDIDX)
+            lambda: left_rear_motor.getSelectedSensorVelocity(self.PIDIDX)
             * encoder_constant
             * 10
         )
 
-        right_front_motor.configSelectedFeedbackSensor(
-            right_front_motor.FeedbackDevice.QuadEncoder, self.PIDIDX, 10
+        right_rear_motor.configSelectedFeedbackSensor(
+            right_rear_motor.FeedbackDevice.QuadEncoder, self.PIDIDX, 10
         )
         self.r_encoder_getpos = (
-            lambda: left_front_motor.getSelectedSensorPosition(self.PIDIDX)
+            lambda: right_rear_motor.getSelectedSensorPosition(self.PIDIDX)
             * encoder_constant
         )
         self.r_encoder_getrate = (
-            lambda: left_front_motor.getSelectedSensorVelocity(self.PIDIDX)
+            lambda: right_rear_motor.getSelectedSensorVelocity(self.PIDIDX)
             * encoder_constant
             * 10
         )
