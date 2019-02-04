@@ -116,11 +116,10 @@ class PhysicsEngine(object):
 
         left_counter = self.drivetrain.l_position / self.ENCODER_SCALE
         right_counter = self.drivetrain.r_position / self.ENCODER_SCALE
-        lr_motor["quad_position"] = int(left_counter)
-        rr_motor["quad_position"] = int(right_counter)
-
+        hal_data["encoder"][1]["count"] = int(left_counter)
+        hal_data["encoder"][0]["count"] = int(right_counter)
         # The 10 is because velocity is measured per 100ms
         left_velocity = 10 * self.drivetrain.l_velocity / self.ENCODER_SCALE
         right_velocity = 10 * self.drivetrain.r_velocity / self.ENCODER_SCALE
-        lr_motor["quad_velocity"] = int(left_velocity)
-        rr_motor["quad_velocity"] = int(right_velocity)
+        hal_data["encoder"][1]["rate"] = int(left_velocity)
+        hal_data["encoder"][0]["rate"] = int(right_velocity)
