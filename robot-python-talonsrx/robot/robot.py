@@ -122,6 +122,8 @@ class MyRobot(wpilib.TimedRobot):
     def disabledInit(self):
         self.logger.info("Robot disabled")
         self.drive.tankDrive(0, 0)
+        self.l_encoder.reset()
+        self.r_encoder.reset()
 
     def disabledPeriodic(self):
         pass

@@ -19,7 +19,7 @@
 #
 # Change the following constant if your robot wheels are slipping during the
 # the fast test, or if the robot is not moving
-ROBOT_FAST_SPEED = 0.5
+ROBOT_FAST_SPEED = 0.7
 
 
 from networktables import NetworkTables, __version__ as ntversion

@@ -11,3 +11,4 @@ bin
 */build
 
 venv
+.deploy_cfg
